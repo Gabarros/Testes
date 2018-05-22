@@ -4,6 +4,7 @@
     <string name="peso">Peso</string>
     <string name="btcalcular">CALCULAR IMC</string>
     <string name="tvMensagem">tvMensagem</string>
-    <string name="tvcalculo">tvCalculo</string>
+    <string name="tvcalculo"/>
+    <string name="tvimc" />
 
 </resources>

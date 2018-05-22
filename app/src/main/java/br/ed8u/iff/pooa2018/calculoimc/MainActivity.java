@@ -1,12 +1,8 @@
 package br.ed8u.iff.pooa2018.calculoimc;
 
-import android.annotation.TargetApi;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.autofill.AutofillValue;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -20,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText etAltura;
     private Button btCalcular;
     private TextView tvResultado;
+    private TextView tvImc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,59 +28,66 @@ public class MainActivity extends AppCompatActivity {
 
         btCalcular = (Button) findViewById(R.id.btCalIMC);
 
-        tvResultado = (TextView)  findViewById(R.id.tvResultado);
+        tvResultado = (TextView) findViewById(R.id.tvResultado);
+        tvImc = (TextView) findViewById(R.id.tvImc);
 
         btCalcular.setOnClickListener(new View.OnClickListener() {
 
-            @TargetApi(Build.VERSION_CODES.O)
-            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View view) {
 
-            public void calcular(){
+                calcular();
+            }
+        });
+    }
+
+
+            public void calcular() {
 
                 float imc;
                 float peso;
                 float altura;
-                String msg;
+
 
                 peso = Float.parseFloat(etPeso.getText().toString());
                 altura = Float.parseFloat(etAltura.getText().toString());
 
-                imc = peso / altura * altura;
+                imc = peso/(altura*altura);
 
-
-                msg = "";
-
-                tvResultado.setText((String.valueOf(imc).concat(msg)));
-
-
-                if (imc < 17.0){
-
-                }
-                if (imc > 17.0 && imc < 18.49){
-
-                }
-                if (imc >18.50 && imc < 24.99){
-
-                }
-
-
-
-
-
+                mostra_mensagem(imc);
             }
 
-            @TargetApi(Build.VERSION_CODES.O)
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onClick(View v) {
-
-                calcular();
-            }
+            public void mostra_mensagem(float imc){
+                   String msg = "";
 
 
-        });
+                    if (imc < 17.0){
+                        msg = "Você está muito abaixo do Peso!";
+                    }
+                    if (imc > 17.0 && imc < 18.49){
+                        msg = "Você está abaixo do Peso!";
+                    }
+                    if (imc >18.50 && imc < 24.99){
+                        msg = "Você está no Peso normal!";
+                    }
+                    if (imc > 25.0 && imc < 29.99){
+                        msg = "Você está acima do Peso!";
+                    }
+                    if (imc > 30.0 && imc < 34.99){
+                        msg = "Você está em Obesidade Grau I!";
+                    }
+                    if (imc > 35.0 && imc < 39.99 ){
+                        msg = "Você está em Obesidade Grau II!";
+                    }
+                    if (imc > 40.0){
+                        msg = "Você está em Obesidade Grau III CUIDADO!";
+                    }
 
 
-
+                    tvResultado.setText(msg);
+                    tvImc.setText(String.valueOf(imc));
+                }
     }
-}
+
+
+
