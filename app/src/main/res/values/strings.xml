@@ -6,5 +6,6 @@
     <string name="tvMensagem">tvMensagem</string>
     <string name="tvcalculo"/>
     <string name="tvimc" />
+    <string name="btlimpar">Limpar</string>
 
 </resources>

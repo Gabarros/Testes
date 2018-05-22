@@ -15,9 +15,12 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText etPeso;
     private EditText etAltura;
-    private Button btCalcular;
+
     private TextView tvResultado;
     private TextView tvImc;
+
+    private Button btLimpar;
+    private Button btCalcular;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         etAltura = (EditText) findViewById(R.id.etAltura);
 
         btCalcular = (Button) findViewById(R.id.btCalIMC);
+        btLimpar = (Button) findViewById(R.id.btLimpar);
 
         tvResultado = (TextView) findViewById(R.id.tvResultado);
         tvImc = (TextView) findViewById(R.id.tvImc);
@@ -40,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
                 calcular();
             }
         });
+
+        btLimpar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etAltura.setText("");
+                etPeso.setText("");
+            }
+        });
+
 
     }
 

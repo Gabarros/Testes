@@ -46,11 +46,11 @@
         android:layout_marginTop="48dp"
         android:text="@string/btcalcular"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintEnd_toStartOf="@+id/btLimpar"
+        app:layout_constraintHorizontal_bias="0.727"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etAltura"
-        app:layout_constraintVertical_bias="0.014" />
+        app:layout_constraintVertical_bias="0.003" />
 
     <TextView
         android:id="@+id/tvResultado"
@@ -80,5 +80,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btCalIMC" />
+
+    <Button
+        android:id="@+id/btLimpar"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/btlimpar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etAltura" />
 
 </android.support.constraint.ConstraintLayout>
